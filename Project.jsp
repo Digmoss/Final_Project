@@ -14,11 +14,20 @@
     <%
         String name = request.getParameter("username");
         String action = request.getParameter("action");
+        // Regular expression to check if the name contains numbers
+        String regex = ".\\d.";
+        
         if (name != null && !name.isEmpty()) {
-            if ("Say Hello".equals(action)) {
-                out.println("<h3>Hello, " + name + "!</h3>");
-            } else if ("Submit Name".equals(action)) {
-                out.println("<h3>Name submitted: " + name + "</h3>");
+            if (name.matches(regex)) {
+                // If the name contains numbers, print an error message
+                out.println("<h3>Error: Name should not contain numbers. Please try again.</h3>");
+            } else {
+                // Proceed with the original logic if no numbers are found
+                if ("Say Hello".equals(action)) {
+                    out.println("<h3>Hello, " + name + "!</h3>");
+                } else if ("Submit Name".equals(action)) {
+                    out.println("<h3>Name submitted: " + name + "</h3>");
+                }
             }
         }
     %>
