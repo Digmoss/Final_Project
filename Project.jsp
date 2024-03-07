@@ -20,7 +20,7 @@
         if (name != null && !name.isEmpty()) {
             if (name.matches(regex)) {
                 // If the name contains numbers, print an error message
-                out.println("<h3>Error: Name should not contain char. Please try again.</h3>");
+                out.println("<h3>Name must contain letters only. Please try again.</h3>");
             } else {
                 // Proceed with the original logic if no numbers are found
                 if ("Say Hello".equals(action)) {
